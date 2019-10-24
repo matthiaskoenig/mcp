@@ -1,0 +1,17 @@
+.idea
+build
+cover
+.tox
+.cache
+.coverage
+.benchmark
+*.pyc
+*~
+__pycache__
+
+.ipynb_checkpoints/
+.pytest_cache
+
+# documentation
+docs/_build/
+
