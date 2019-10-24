@@ -19,7 +19,7 @@ on_rtd = os.environ.get('READTHEDOCS') == 'True'
 
 # -- Project information -----------------------------------------------------
 
-project = 'modelingcellprocesses'
+project = 'mcp'
 copyright = '2019, Matthias König'
 author = 'Matthias König'
 

@@ -1,8 +1,11 @@
 
-[![Documentation Status](https://readthedocs.org/projects/modelcellprocesses/badge/?version=latest)](https://modelcellprocesses.readthedocs.io/en/latest/)
+[![Documentation Status](https://readthedocs.org/projects/mcp/badge/?version=latest)](https://mcp.readthedocs.io/en/latest/)
 
-<h1>Modeling cellular processes</h1>
+<h1>Models of Cellular Processes</h1>
 <b><a href="https://orcid.org/0000-0003-1725-179X" title="https://orcid.org/0000-0003-1725-179X"><img src="./docs/static/images/orcid.png" height="15"/></a> Matthias König</b>
+
+Lecture notes and information for the course **Models of cellular processes** - **Modelle zellulärer Prozesse**
+at the Humboldt-University Berlin, WS2019/20, Institute for Biologie, Institute for Theoretical Biology.
 
 The lecture notes and examples are available from
 https://modelcellprocesses.readthedocs.io

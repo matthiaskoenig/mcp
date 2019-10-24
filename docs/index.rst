@@ -1,15 +1,15 @@
-Welcome to modelcellprocesses's documentation!
-==============================================
+Welcome to Models of Cellular Processes
+=======================================
 
-Course material for the 2019-2020 lecture ``Modeling Cellular Processes`` at the Humboldt University Berlin.
-All code and information is available at
-`https://github.com/matthiaskoenig/modelcellprocesses <https://github.com/matthiaskoenig/modelcellprocesses>`_.
+Course material for the 2019-2020 lecture ``Models of Cellular Processes`` at the Humboldt University Berlin.
+All code available from
+`https://github.com/matthiaskoenig/mcp <https://github.com/matthiaskoenig/mcp>`_.
 
-Overview
---------
+Course overview
+----------------
 1. Modeling introduction
 2. Boolean networks
-
+3. ...
 
 
 
