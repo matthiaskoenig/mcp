@@ -1,6 +1,9 @@
 Boolean networks code
 ---------------------
 
+Jupyter notebook available at
+`docs/notebooks/01\_boolean\_networks.ipynb <https://github.com/matthiaskoenig/mcp/blob/master/docs/notebooks/01_boolean_networks.ipynb>`__
+
 Short introduction to python
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

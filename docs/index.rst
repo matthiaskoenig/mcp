@@ -2,7 +2,8 @@ Welcome to Models of Cellular Processes
 =======================================
 
 Course material for the lecture **Models of Cellular Processes** (Modelle zellulärer Prozesse WS19/20) at the Humboldt-University Berlin, Institute for Theoretical Biology (ITB) by `Dr. Matthias König <https://livermetabolism.com/cv>`_.
-All code available at
+
+All code is available from
 `https://github.com/matthiaskoenig/mcp <https://github.com/matthiaskoenig/mcp>`_.
 
 Course overview
