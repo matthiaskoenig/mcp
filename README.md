@@ -8,7 +8,7 @@ Lecture notes and information for the course **Models of cellular processes** - 
 at the Humboldt-University Berlin, WS2019/20, Institute for Biologie, Institute for Theoretical Biology.
 
 The lecture notes and examples are available from
-https://modelcellprocesses.readthedocs.io
+https://mcp.readthedocs.io
 
 ### License
 * Source Code: [LGPLv3](http://opensource.org/licenses/LGPL-3.0)
