@@ -92,8 +92,7 @@ Wie konstruiert man ein Modell?
 - subjective and selective procedure
 - abhängig von Fragestellung
 
-**Modelling cycle**
-​model predictions → experiments (validation) → refining models
+**Modelling cycle** - ​model predictions → experiments (validation) → refining models
 
 Nichtlineare Dynamik
 --------------------
@@ -140,4 +139,5 @@ References
 
 
 **TODO** add figures (coming soon)
+
 **TODO** better formulations & English/German version
