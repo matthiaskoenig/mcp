@@ -2,6 +2,6 @@ numpy
 scipy
 pandas
 matplotlib
-
+imageio
 jupyter
 jupyterlab

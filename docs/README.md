@@ -1,4 +1,8 @@
 # Documentation
+Install pandoc via 
+```
+sudo apt-get install pandoc
+```
 
 To create the documentation use
 ```

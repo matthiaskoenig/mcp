@@ -1,16 +1,37 @@
 Welcome to Models of Cellular Processes
 =======================================
 
-Course material for the 2019-2020 lecture ``Models of Cellular Processes`` at the Humboldt University Berlin.
-All code available from
+Course material for the lecture **Models of Cellular Processes** (Modelle zellulärer Prozesse WS19/20) at the Humboldt-University Berlin, Institute for Theoretical Biology (ITB) by `Dr. Matthias König <https://livermetabolism.com/cv>`_.
+All code available at
 `https://github.com/matthiaskoenig/mcp <https://github.com/matthiaskoenig/mcp>`_.
 
 Course overview
 ----------------
-1. Modeling introduction
-2. Boolean networks
-3. ...
+- Introduction to modeling
+- Boolean networks & cellular automata
+- Finite-difference equations
+- Kinetic models
 
+    - differential equations
+    - numerical integration
+    - kinetics in a nutshell
+    - steady state
+    - stability analysis
+    - sensitivity analysis & robustness
+
+- Models of biochemical systems
+
+    - metabolic models
+    - signalling pathways
+    - cell cycle
+
+- Flux balance analysis (constrained based-models)
+- Network & graph based approaches
+- Properties of graphs
+- Stochastic models
+- Parameter estimation
+- Databases, parameters
+- Reproducibility & standardization
 
 
 Contents:
@@ -20,8 +41,9 @@ Contents:
 
    01_introduction.rst
    02_boolean_networks.rst
-   notebooks/simjson.rst
-
+   notebooks/01_boolean_networks.rst
+   03_cellular_automata.rst
+   notebooks/02_cellular_automata.rst
 
 
 Indices and tables
