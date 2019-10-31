@@ -45,6 +45,7 @@ Contents:
    notebooks/01_boolean_networks.rst
    03_cellular_automata.rst
    notebooks/02_cellular_automata.rst
+   04_maps.rst
 
 
 Indices and tables
