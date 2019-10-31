@@ -46,6 +46,7 @@ Contents:
    03_cellular_automata.rst
    notebooks/02_cellular_automata.rst
    04_maps.rst
+   notebooks/03_maps.rst
 
 
 Indices and tables

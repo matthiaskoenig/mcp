@@ -28,8 +28,8 @@ https://en.wikipedia.org/wiki/Cellular\_automaton.
 A more in depth introduction with hints how to solve the task is given
 in https://natureofcode.com/book/chapter-7-cellular-automata/
 
-Example
-~~~~~~~
+Example: 1-dim cellular automaton
+---------------------------------
 
 Build and simulate the simple cellular automaton with the following
 characteristics:
@@ -64,8 +64,10 @@ applied:
 -  the initial state of all cells is 0, with exception of the cell in
    the middle of the grid which starts with state 1
 
-***Cellular automaton as a special boolean network*** - reuse our
-simulator
+Cellular automaton as a special boolean network
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+-  reuse our simulator
 
 .. code:: ipython3
 
@@ -93,13 +95,15 @@ simulator
         Nt, Nx = states.shape
         fig = plt.figure(figsize=figsize)
         plt.imshow(states.astype(np.double), cmap="binary")
-        plt.colorbar()
+        # plt.colorbar()
         plt.ylabel(ylabel)
         plt.xlabel("state")
         ax = plt.gca()
         ax.set_xticks(range(Nx))
-        ax.set_xticklabels(['x{}'.format(k) for k in range(Nx)])
+        #ax.set_xticklabels(['x{}'.format(k) for k in range(Nx)])
+        ax.set_xticklabels([''.format(k) for k in range(Nx)])
         plt.show()
+        return fig
 
 .. code:: ipython3
 
@@ -153,12 +157,13 @@ simulator
         return y
     
     # initial condition
-    Nx = 101
+    Nx = 101  # 101
     x0 = np.zeros(Nx, dtype=bool)
     x0[int((Nx-1)/2 + 1)] = 1
     
     states = ndsimulate(x0, f_rules=f_automaton, steps=100)
-    plot_states(states, figsize=(10,10))
+    f = plot_states(states, figsize=(10,10))
+    f.savefig("./images/cellular_automaton.png", dpi=150, bbox_inches="tight")
 
 
 .. parsed-literal::
@@ -173,6 +178,12 @@ simulator
 
 .. image:: 02_cellular_automata_files/02_cellular_automata_6_1.png
 
+
+Create animation
+^^^^^^^^^^^^^^^^
+
+In the following we animate the cellular automaton over time. Let the
+Game of Life begin.
 
 .. code:: ipython3
 
