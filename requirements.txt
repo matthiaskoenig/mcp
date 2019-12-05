@@ -3,6 +3,7 @@ scipy
 pandas
 matplotlib
 cobra
+altair
 imageio
 jupyter
 jupyterlab

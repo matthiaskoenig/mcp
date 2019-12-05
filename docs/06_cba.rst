@@ -91,25 +91,24 @@ and Analysis Toolbox
     :alt: escher-fba
     :figclass: align-center
 
-Many variants with additional constraints, e.g., geometric FBA or parsimonious FBA.
-
-**parsimonious FBA (pFBA)**
-
-Parsimonious FBA (often written pFBA) finds a flux distribution which gives the optimal growth rate, but minimizes the total sum of flux.
-For more details on pFBA, see Lewis2010
-
 **non-uniquness of solution**
 
-The optimal solution is typically not unique. Typical steps of analysis are either *Flux variability analysis* or *Flux sampling*
+The optimal solution is typically not unique. Typical steps of analysis are either *Flux variability analysis*, *Flux sampling*, or running FBA variants with additional constraints like *geometric FBA* or *parsimonious FBA*.
 
 **Flux variability analysis (FVA)**
 
 FBA will not give always give unique solution, because multiple flux states can achieve the same optimum. FVA (or flux variability analysis) finds the ranges of each metabolic flux at the optimum.
-The standard FVA may contain loops, i.e. high absolute flux values that only can be high if they are allowed to participate in loops (a mathematical artifact that cannot happen in vivo).
+
+**parsimonious FBA (pFBA)**
+
+Parsimonious FBA finds a flux distribution which gives the optimal growth rate, but minimizes the total sum of flux. For more details on pFBA, see Lewis2010
+
+**geometric FBA (pFBA)**
+Geometric FBA finds a unique optimal flux distribution which is central to the range of possible fluxes.
 
 **Flux sampling**
 
-- sampling of flux cone
+- sampling of flux cone to evaluate possible solution space
 
 **Simulating deletions**
 - often used to simulate single or double deletions
