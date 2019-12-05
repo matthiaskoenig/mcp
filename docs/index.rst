@@ -49,6 +49,7 @@ Contents:
    notebooks/03_maps.rst
    05_ode.rst
    notebooks/04_ode.rst
+   06_cba.rst
 
 
 Indices and tables

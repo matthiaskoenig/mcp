@@ -1,3 +1,14 @@
+
+
+Metabolic network reconstruction
+---------------------------------
+- network reconstructions contain all of the known metabolic reactions in an organism and the genes that encode each enzyme.
+- Thiele
+Advanced FBA methods
+
+Stoichiometric matrix
+---------------------
+
 Constraint-based analysis (CBA)
 =====================================
 Before looking at details of the rate equation, we can look at the constraint imposed by the steady state assumption,
@@ -10,28 +21,96 @@ The vector :math:`v^0` is typically underdetermined (fewer constraints than unkn
 Flux balance analysis (FBA)
 ---------------------------
 Flussbilanzanalyse
+- Flux balance analysis is a mathematical approach for analyzing the flow of metabolites through a metabolic network, in particular in genome-scale metabolic networks.
+- FBA is based on constraints
 
 Unknown fluxes are estimated using optimality principles. That is, the flux vector :math:`v^0` is assumed to be such that a given objective function is a maximized (such as ATP production of biomass formation).
 The optimal solution is typically not unique.
+The most common objective is the biomass objective function (BOF), i.e., growth
 
-TODO: Figure Flux cones!
+.. figure:: ./images/fba.png
+    :width: 400px
+    :align: center
+    :alt: fba
+    :figclass: align-center
 
-!Use information from other books
+.. math::
+    \max_{v^0} c^T \cdot v \\
+    s.t. N \cdot v^0 = 0 \\
+    \alpha_i \leq v_i^0 \leq \beta_i
 
-Software
-- cobra
-- cobrapy
-....
+Often a biomass or growth function is defined and optimized
+.. math::
+    \max_{v^0} v_{bio}
+Alternatively energy based functions are often used.
+
+For a good introduction see Orth2010
+
+**Flux variability analysis (FVA)**
+FBA will not give always give unique solution, because multiple flux states can achieve the same optimum. FVA (or flux variability analysis) finds the ranges of each metabolic flux at the optimum.
+The standard FVA may contain loops, i.e. high absolute flux values that only can be high if they are allowed to participate in loops (a mathematical artifact that cannot happen in vivo).
+
+**parsimonious FBA (pFBA)**
+Parsimonious FBA (often written pFBA) finds a flux distribution which gives the optimal growth rate, but minimizes the total sum of flux.
+For more details on pFBA, see Lewis2010
+
+Many variants with additional constraints, e.g., geometric FBA or parsimonious FBA.
 
 
-Metabolic network reconstruction
----------------------------------
+**Simulating deletions**
+- often used to simulate single or double deletions
+- In addition to the reactions there is a logical mapping of genes (protein products) to reactions. Knocking the genes out, i.e., setting the fluxes to zero allows evaluating the effect of such gene deletions.
 
-Advanced FBA methods
+**Flux sampling**
 
+**Solving LP problems**
+
+FBA is a linear programming (LP) problem which can be solved using the *simplex algorithm*.
+
+.. figure:: ./images/simplex.png
+    :width: 200px
+    :align: center
+    :alt: simplex
+    :figclass: align-center
+
+A system of linear inequalities defines a polytope as a feasible region. The simplex algorithm begins at a starting vertex and moves along the edges of the polytope until it reaches the vertex of the optimal solution.
+
+**Solvers**
+
+- `GUROBI <https://www.gurobi.com/>`_
+- `CPLEX <https://www.ibm.com/analytics/cplex-optimizer>`_
+- `glpk <https://www.gnu.org/software/glpk/>`_ (GNU Linear Programming toolkit)
+
+**Software for constraint-based analysis (CBA)**
+
+Many tools exist for performing FBA analysis, e.g.,
+
+- `COBRA toolbox <https://opencobra.github.io/cobratoolbox/stable/>`_ (Matlab, see Heirendt2019), The COnstraint-Based Reconstruction
+and Analysis Toolbox
+- `cobrapy <https://cobrapy.readthedocs.io/en/latest/>`_ (python, see Ebrahim2013)
+- `Escher-FBA <https://sbrg.github.io/escher-fba/#/>`_ (web app, see Rowe2010)
+
+.. figure:: ./images/escher-fba.png
+    :width: 600px
+    :align: center
+    :alt: escher-fba
+    :figclass: align-center
 
 Elementary flux modes (EFM)
 ---------------------------
 Enumeration of possible pathways. A flux mode is a set of reactions that can give rise to a steady state flux vector :math:`v^0`. An elementary flux mode is a flux mode where no reaction cen be removed (=zero flux) and the resulting reactions can still be a flux mode.
 The set of EFMs is unique for a given stoichiometry.
 The number of EFMs is typically (much) higher then the dimension of the nullspace.
+
+
+References
+----------
+
+- Heirendt, Laurent, et al. "Creation and analysis of biochemical constraint-based models using the COBRA Toolbox v. 3.0." Nature protocols 14.3 (2019): 639.
+- Orth, Jeffrey D., Ines Thiele, and Bernhard Ø. Palsson. "What is flux balance analysis?." Nature biotechnology 28.3 (2010): 245.
+- Lewis, Nathan E., et al. "Omic data from evolved E. coli are consistent with computed optimal growth from genome‐scale models." Molecular systems biology 6.1 (2010).
+- Ebrahim, Ali, et al. "COBRApy: constraints-based reconstruction and analysis for python." BMC systems biology 7.1 (2013): 74.
+- Rowe, Elliot, Bernhard O. Palsson, and Zachary A. King. "Escher-FBA: a web application for interactive flux balance analysis." BMC systems biology 12.1 (2018): 84.
+- Wikipedia Simplex Algorithm; https://en.wikipedia.org/wiki/Simplex_algorithm
+
+
