@@ -2,6 +2,7 @@ numpy
 scipy
 pandas
 matplotlib
+cobra
 imageio
 jupyter
 jupyterlab
