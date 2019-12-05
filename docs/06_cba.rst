@@ -1,3 +1,6 @@
+Constraint-based analysis (CBA)
+===============================
+
 Stoichiometric matrix
 ---------------------
 - stoichiometric matrix :math:`N` is central object in metabolic modelling.
@@ -13,8 +16,7 @@ Metabolic network reconstruction
 
 
 
-Constraint-based analysis (CBA)
-=====================================
+
 Before looking at details of the rate equation, we can look at the constraint imposed by the steady state assumption,
 
 .. math:: N \cdot v^0 = 0
@@ -99,11 +101,12 @@ The optimal solution is typically not unique. Typical steps of analysis are eith
 
 FBA will not give always give unique solution, because multiple flux states can achieve the same optimum. FVA (or flux variability analysis) finds the ranges of each metabolic flux at the optimum.
 
-**parsimonious FBA (pFBA)**
+**Parsimonious FBA (pFBA)**
 
 Parsimonious FBA finds a flux distribution which gives the optimal growth rate, but minimizes the total sum of flux. For more details on pFBA, see Lewis2010
 
-**geometric FBA (pFBA)**
+**Geometric FBA (pFBA)**
+
 Geometric FBA finds a unique optimal flux distribution which is central to the range of possible fluxes.
 
 **Flux sampling**
@@ -111,8 +114,10 @@ Geometric FBA finds a unique optimal flux distribution which is central to the r
 - sampling of flux cone to evaluate possible solution space
 
 **Simulating deletions**
-- often used to simulate single or double deletions
-- In addition to the reactions there is a logical mapping of genes (protein products) to reactions. Knocking the genes out, i.e., setting the fluxes to zero allows evaluating the effect of such gene deletions.
+
+In addition to species and reactions genes (protein products) are logically connected to reactions.
+A typical analysis are *gene deletions*, knocking out genes by setting corresponding reaction fluxes to zero.
+
 
 .. figure:: ./images/gene-protein-reaction.png
     :width: 600px
@@ -126,7 +131,6 @@ Enumeration of possible pathways. A flux mode is a set of reactions that can giv
 The set of EFMs is unique for a given stoichiometry.
 The number of EFMs is typically (much) higher then the dimension of the nullspace.
 
-
 References
 ----------
 
@@ -138,6 +142,7 @@ References
 - Thiele, Ines, and Bernhard Ø. Palsson. "A protocol for generating a high-quality genome-scale metabolic reconstruction." Nature protocols 5.1 (2010): 93.
 - Schellenberger, Jan, et al. "Quantitative prediction of cellular metabolism with constraint-based models: the COBRA Toolbox v2. 0." Nature protocols 6.9 (2011): 1290.
 - Lotz, Katrin, et al. "Elementary flux modes, flux balance analysis, and their application to plant metabolism." Plant Metabolism. Humana Press, Totowa, NJ, 2014. 231-252.
+- Megchelenbrink, Wout, Martijn Huynen, and Elena Marchiori. "optGpSampler: an improved tool for uniformly sampling the solution-space of genome-scale metabolic networks." PloS one 9.2 (2014): e86587.
 - Wikipedia Simplex Algorithm; https://en.wikipedia.org/wiki/Simplex_algorithm
 
 

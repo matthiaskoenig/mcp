@@ -50,6 +50,7 @@ Contents:
    05_ode.rst
    notebooks/04_ode.rst
    06_cba.rst
+   notebooks/05_cba.rst
 
 
 Indices and tables
