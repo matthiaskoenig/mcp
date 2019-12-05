@@ -1,38 +1,34 @@
 Constraint-based analysis (CBA)
 ===============================
 
-Stoichiometric matrix
----------------------
-- stoichiometric matrix :math:`N` is central object in metabolic modelling.
-
-
-Example:
-.. math:: \begin{matrix}1 & 0\\0 & 1\end{matrix}
-
 Metabolic network reconstruction
 ---------------------------------
-- network reconstructions contain all of the known metabolic reactions in an organism and the genes that encode each enzyme.
-- bottom-up metabolic network reconstruction methods have been developed (see Thiele2010)
+Contain:
 
-
-
-
-Before looking at details of the rate equation, we can look at the constraint imposed by the steady state assumption,
-
-.. math:: N \cdot v^0 = 0
-
-Here :math:`v^0` is a vector of reaction rates. The vector :math:`v^0` is an element of the right nullspace (or kernel) of the stoichiometric matrix.
-The vector :math:`v^0` is typically underdetermined (fewer constraints than unknown fluxes, the number of unknown fluxes is r - rank(N) ).
+- all metabolic reactions in an organism
+- genes that encode each enzyme
+- semi-automatic bottom-up methods have been developed (see Thiele2010)
+- manual refinement (e.g. removal dead-ends)
 
 Flux balance analysis (FBA)
 ---------------------------
 Flux balance analysis is a mathematical approach for analyzing the flow of metabolites through a metabolic network, in particular in genome-scale metabolic networks.
+
 Unknown fluxes are estimated using optimality principles. That is, the flux vector :math:`v^0` is assumed to be such that a given objective function is a maximized (such as ATP production of biomass formation).
+
+FBA is based on steady state assumption
+
+.. math:: N \cdot v^0 = 0
+
+- :math:`v^0` is a vector of reaction rates
+- :math:`v^0` is an element of the right nullspace (kernel) of the stoichiometric matrix.
+- :math:`v^0` is typically underdetermined (fewer constraints than unknown fluxes, the number of unknown fluxes is :math:`r - rank(N)` )
+- no need for kinetic information
 
 **FBA steps**
 
 - derive mass balance equations
-- build up stoichiometric matrix
+- build up stoichiometric matrix :math:`N`
 - apply constraints to limit feasible solution space
 - maximize/minize an objective function to find an optimal solution
 
@@ -42,7 +38,20 @@ Unknown fluxes are estimated using optimality principles. That is, the flux vect
     :alt: fba
     :figclass: align-center
 
-- FBA is based on constraints
+The most common objective is the biomass objective function (BOF), i.e., growth.
+Alternatively energy based functions are often used.
+
+**Optimization problem**
+
+.. math::
+    \max_{v^0} \; c^T \cdot v \\
+    s.t. \; N \cdot v^0 = 0 \\
+    \alpha_i \leq v_i^0 \leq \beta_i
+
+Often a special biomass function is added to the model
+
+.. math::
+    \max_{v^0} v_{bio}
 
 .. figure:: ./images/fba.png
     :width: 400px
@@ -50,15 +59,6 @@ Unknown fluxes are estimated using optimality principles. That is, the flux vect
     :alt: fba
     :figclass: align-center
 
-.. math::
-    \max_{v^0} c^T \cdot v \\
-    s.t. N \cdot v^0 = 0 \\
-    \alpha_i \leq v_i^0 \leq \beta_i
-
-The most common objective is the biomass objective function (BOF), i.e., growth.
-Alternatively energy based functions are often used.
-.. math::
-    \max_{v^0} v_{bio}
 
 **Solving LP problems**
 
@@ -78,22 +78,7 @@ A system of linear inequalities defines a polytope as a feasible region. The sim
 - `CPLEX <https://www.ibm.com/analytics/cplex-optimizer>`_
 - `glpk <https://www.gnu.org/software/glpk/>`_ (GNU Linear Programming toolkit)
 
-**Software for constraint-based analysis (CBA)**
-
-Many tools exist for performing FBA analysis, e.g.,
-
-- `COBRA toolbox <https://opencobra.github.io/cobratoolbox/stable/>`_ (Matlab, see Heirendt2019), The COnstraint-Based Reconstruction
-and Analysis Toolbox
-- `cobrapy <https://cobrapy.readthedocs.io/en/latest/>`_ (python, see Ebrahim2013)
-- `Escher-FBA <https://sbrg.github.io/escher-fba/#/>`_ (web app, see Rowe2010)
-
-.. figure:: ./images/escher-fba.png
-    :width: 600px
-    :align: center
-    :alt: escher-fba
-    :figclass: align-center
-
-**non-uniquness of solution**
+**Non-uniquness of solution**
 
 The optimal solution is typically not unique. Typical steps of analysis are either *Flux variability analysis*, *Flux sampling*, or running FBA variants with additional constraints like *geometric FBA* or *parsimonious FBA*.
 
@@ -118,18 +103,34 @@ Geometric FBA finds a unique optimal flux distribution which is central to the r
 In addition to species and reactions genes (protein products) are logically connected to reactions.
 A typical analysis are *gene deletions*, knocking out genes by setting corresponding reaction fluxes to zero.
 
-
 .. figure:: ./images/gene-protein-reaction.png
     :width: 600px
     :align: center
     :alt: GPR
     :figclass: align-center
 
+**Software for constraint-based analysis (CBA)**
+
+Many tools exist for performing FBA analysis, e.g.,
+
+- `COBRA toolbox <https://opencobra.github.io/cobratoolbox/stable/>`_ (Matlab, see Heirendt2019), The COnstraint-Based Reconstruction and Analysis Toolbox
+- `cobrapy <https://cobrapy.readthedocs.io/en/latest/>`_ (python, see Ebrahim2013)
+- `Escher-FBA <https://sbrg.github.io/escher-fba/#/>`_ (web app, see Rowe2010)
+
+.. figure:: ./images/escher-fba.png
+    :width: 600px
+    :align: center
+    :alt: escher-fba
+    :figclass: align-center
+
 Elementary flux modes (EFM)
 ---------------------------
-Enumeration of possible pathways. A flux mode is a set of reactions that can give rise to a steady state flux vector :math:`v^0`. An elementary flux mode is a flux mode where no reaction cen be removed (=zero flux) and the resulting reactions can still be a flux mode.
-The set of EFMs is unique for a given stoichiometry.
-The number of EFMs is typically (much) higher then the dimension of the nullspace.
+Alternative analysis method using steady-state assumption :math:`N \cdot v^0 = 0`
+
+- Enumeration of possible pathways.
+- A flux mode is a set of reactions that can give rise to a steady state flux vector :math:`v^0`. An elementary flux mode is a flux mode where no reaction can be removed (=zero flux) and the resulting reactions can still be a flux mode.
+- The set of EFMs is unique for a given stoichiometry.
+- The number of EFMs is typically (much) higher then the dimension of the nullspace.
 
 References
 ----------
@@ -144,5 +145,3 @@ References
 - Lotz, Katrin, et al. "Elementary flux modes, flux balance analysis, and their application to plant metabolism." Plant Metabolism. Humana Press, Totowa, NJ, 2014. 231-252.
 - Megchelenbrink, Wout, Martijn Huynen, and Elena Marchiori. "optGpSampler: an improved tool for uniformly sampling the solution-space of genome-scale metabolic networks." PloS one 9.2 (2014): e86587.
 - Wikipedia Simplex Algorithm; https://en.wikipedia.org/wiki/Simplex_algorithm
-
-
