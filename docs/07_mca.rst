@@ -71,6 +71,10 @@ A set of reactions and a set of metabolites results in an elasticity matrix :mat
 Note that the Jacobian matrix is :math:`J = N \cdot \epsilon` at a steady state (assuming no mass conservation).
 
 **Control coefficients**
+A control coefficient measures the relative steady state change in a system variable, e.g. pathway flux :math:`J` or metabolite concentration :math:`S`
+The two main control coefficients are the *flux* and *concentration control coefficients*.
+
+**Concentration control coefficient**
 The (unscaled) concentration control coefficients specify how the concentrations change due to a perturbation of a parameter (typically an enzyme concentration) that effects one or more fluxes.
 In terms of derivatives,
 
@@ -101,7 +105,34 @@ Likewise, multiplication of the concentration control coefficient with the elast
 .. math:: C^X \cdot \epsilon = 1
 
 **Flux control coefficients**
-Similar to :math:`
+Similar to :math:`C^X`, the flux control coefficient denotes the changes in flux upon perturbations,
+
+..math:: \frac{dv}{dp} = \frac{\delta v}{\delta p} + \frac{\delta v}{\delta x}\frac{dx}{dp} = \left[ 1 + \frac{\delta v}{\delta x} \cdot C^X] \frac{\delta v}{\delta p}
+
+and
+
+.. math:: C^v := 1 + \frac{\delta v}{\delta x} \cdot C^X
+
+The corresponding summation theorem (for unscaled coefficient) is
+
+.. math:: C^v \cdot K = K
+
+**Scaled control coefficients**
+Similar to the partial derivatives, it is often useful to consider scaled control coefficients. These provide a measure of the relative changes of concentrations and fluxes upon relative changes in parameters (that is, a scaled control coefficient of :math:`\hat{C}^v`, implies that if the corresponding enzyme is changed by 1% the respective flux changes by 1%).
+
+We define *scaled elasticities*
+
+.. math:: \hat{\epsilon} = D_{v^0}^{-1} \cdot \epsilon \cdot D_{x^0}
+
+*scaled concentration control coefficients* :math:`\hat{C}^X`
+
+.. math:: \hat{C}^X = D_{x^0}^{-1} \cdot C^X \cdot D_{v^0}
+
+and *scaled flux control coefficients* :math:`\hat{C}^v`
+
+.. math:: \hat{C}^v = D_{v^0}^{-1} \cdot C^v \cdot D_{v^0} \Longleftrightarrow \hat{C}^v = 1 + \hat{\epsilon}\cdot \hat{C}^X
+
+where :math:`D_{x^0}` and :math:`D_{v^0}` denote diagonal matrices with :math:`x^0` and :math:`v^0` on the diagonal, respectively.
 
 
 
