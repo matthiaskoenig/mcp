@@ -25,7 +25,7 @@ A key concept is hereby the sensitivity of a function :math:`y = f(x)` with resp
 This sensitivity depends on the absolute value of the parameter: *absolute sensitivity*
 
 .. figure:: ./images/sensitivity.png
-    :width: 400px
+    :width: 200px
     :align: center
     :alt: escher-fba
     :figclass: align-center
@@ -39,13 +39,18 @@ Often the *relative sensitivity* or *logarithmic sensitivity*, which scales the 
 An advantage is that logarithmic sensitivities are unit-less. But can be undefined for certain parameter/value combinations.
 
 **Example**
-For instance we can calculate the sensitivity of a Michaelis-Menten rate equation :math:`v(x)` on the metabolite concentrations `x`
+
+For instance we can calculate the sensitivity of a Michaelis-Menten rate equation :math:`v(x)` on the metabolite concentrations `x` at a concentration `x^0`
 
 .. math:: v(x) = \frac{V_{m}\cdot x}{K_m + x}
 
-.. math:: \Rightarrow \; \frac{d \ln v(x)}{d \ln x} = \frac{1}{1 + \frac{x}{K_M}} \in (0,1]
+.. math:: \frac{d \ln v(x)}{d \ln x} = \frac{x^0}{v(x^0)} \cdot \frac{dv}{dx}\right|_{X^0}
 
-The logarithmic sensitivities have an intuitive interpretation as the **kinetic order**.
+.. math:: \frac{dv}{dx} = \frac{V_m \cdot (K_m+x) - V_m \cdot x}{(K_m + x)^2} = \frac{V_m \cdot K_m}{(K_m + x)^2}
+
+.. math:: \frac{d \ln v(x)}{d \ln x} = \frac{x^0}{\frac{V_m \cdot x^0}{K_m + x0}} \cdot \frac{V_m \cdot K_m}{(K_m + x)^2} = \frac{K_m}{K_m + x^0} = \frac{1}{1 + \frac{x^0}{K_m} \in [0, 1)
+
+The logarithmic sensitivities have an intuitive interpretation as the **kinetic order** of a reaction.
 For a Michaelis-Menten function, the logarithmic sensititivity with respect to the substrates ranges from :math:`1` (linear regime, substrate concentration small compared to :math:`Km`) to :math:`0` (saturation, substrate concentration large compared to :math:`Km`)
 
 **Exercise**
