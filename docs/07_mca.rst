@@ -1,34 +1,47 @@
-Elementary flux modes (EFM)
-============================
-Alternative analysis method using steady-state assumption :math:`N \cdot v^0 = 0`
-
-- Enumeration of possible pathways.
-- A flux mode is a set of reactions that can give rise to a steady state flux vector :math:`v^0`. An elementary flux mode is a flux mode where no reaction can be removed (=zero flux) and the resulting reactions can still be a flux mode.
-- The set of EFMs is unique for a given stoichiometry.
-- The number of EFMs is typically (much) higher then the dimension of the nullspace.
-
-
 Sensitivity analysis
 ====================
 
-A sensitivity quantifies how changes in parameters or initial conditions influence results.
+Short review kinetic model of metabolism
 
-One of the most important concepts is the sensitivity of a function to a parameter. The sensitivity of a value :math:`y = f(p)` with respect to a parameter p is defined as the derivative
+- Reactions with rate laws :math:`v_k` with :math:`k \in {1, ..., N_r}` depending on metabolites :math:`x_i` with :math:`i \in {1, ..., N_m}` and parameters :math:`p_m` with :math:`i \in {1, ..., N_p}`
+- Stochiometric matrix :math:`N \in I\!R(N_m, N_r)`
+- Time evolution via system of ordinary differential equations from initial state :math:`x_0`
 
-.. math:: \lim_{\Delta p \to 0} \frac{\Delta f(p)}{\Delta p} = \frac{df(p)}{dp}
+.. math:: \frac{d}{dt} \vec{x} = N \cdot \vec{v}
 
-However, the value depends on the absolute value of the parameter, i.e., *absolute sensitivity*.
+- Steady state via
+
+.. math:: N \cdot \vec{v} = 0
+
+
+Sensitivity
+-----------
+A sensitivity quantifies how changes in a parameter or state variable affect results.
+
+A key concept is hereby the sensitivity of a function :math:`y = f(x)` with respect to a parameter :math:`x` defined as derivative
+
+.. math:: \lim_{\Delta x \to 0} \frac{\Delta f(x)}{\Delta x} = \frac{df(x)}{dx}
+
+This sensitivity depends on the absolute value of the parameter: *absolute sensitivity*
+
+.. figure:: ./images/sensitivity.png
+    :width: 400px
+    :align: center
+    :alt: escher-fba
+    :figclass: align-center
 
 **Logarithmic sensitivity**
-Often it is more useful to look at *relative senitivity* or *logarithmic sensitivity* (scaling/normalization)
 
-.. math:: \frac{d \left( \frac{f(p)}{f(p^0)} \right)}{d \left( \frac{p}{p^0} \right)} = \frac{p^0}{f(p^0)} \frac{df(p)}{dp} = \frac{d \ln f(p)}{d \ln p}
+Often the *relative sensitivity* or *logarithmic sensitivity*, which scales the sensitivity according to a given reference parameter :math:`x^0`.
 
-An advantage is that scaled sensitivities are unitless, but could be undefined for certain parameter/value combinations.
+.. math:: \frac{d \left( \frac{f(x)}{f(x^0)} \right)}{d \left( \frac{x}{x^0} \right)} = \frac{x^0}{f(x^0)} \cdot \frac{df(x)}{dx} = \frac{d \ln f(x)}{d \ln x}
+
+An advantage is that logarithmic sensitivities are unit-less. But can be undefined for certain parameter/value combinations.
 
 **Example**
+For instance we can calculate the sensitivity of a Michaelis-Menten rate equation :math:`v(x)` on the metabolite concentrations `x`
 
-.. math:: v(x) = \frac{V_{max}\cdot x}{K_m + x}
+.. math:: v(x) = \frac{V_{m}\cdot x}{K_m + x}
 
 .. math:: \Rightarrow \; \frac{d \ln v(x)}{d \ln x} = \frac{1}{1 + \frac{x}{K_M}} \in (0,1]
 
@@ -55,8 +68,6 @@ Metabolic Control Analysis (MCA)
 In metabolic networks the steady state variables, that is the fluxes and metabolite concentrations, depend on the value of parameters such as enzyme concentrations, kinetic constants (like Michelis-Menten constants).
 
 The effect of perturbations depends the place of the perturbation.
-
-
 
 MCA considers how a perturbation propagates through a metabolic network. Typically: how a change in enzyme concentration (or other parameter) affects the steady state with respect to metabolite concentrations and flux values.
 
@@ -96,6 +107,12 @@ Note that the Jacobian matrix is :math:`J = N \cdot \epsilon`.
 The :math:`\pi`-*elasticity* is defined with respect to parameters :math:`p_m` like kinetic constants, concentrations of enzymes, or concentrations of external metabolites
 
 .. math:: \pi^{v_k}_{p_m} = \frac{\delta \ln v_k}{\delta \ln p_m}
+
+.. figure:: ./images/mca.png
+    :width: 600px
+    :align: center
+    :alt: escher-fba
+    :figclass: align-center
 
 
 **Control coefficients**
