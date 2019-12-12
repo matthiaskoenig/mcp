@@ -1,11 +1,11 @@
 Sensitivity analysis
 ====================
 
-Short review kinetic model of metabolism
+**Review kinetic models of metabolism**
 
-- Reactions with rate laws :math:`v_k` with :math:`k \in {1, ..., N_r}` depending on metabolites :math:`x_i` with :math:`i \in {1, ..., N_m}` and parameters :math:`p_m` with :math:`i \in {1, ..., N_p}`
+- System of reactions with rate laws :math:`v_k(\vec{x}, \vec{p}) = f(\vec{x}, \vec{p})` (:math:`k \in {1, ..., N_r}`) which depend on metabolites :math:`x_i` (:math:`i \in {1, ..., N_m}`) and parameters :math:`p_m` (:math:`i \in {1, ..., N_p})`
 - Stochiometric matrix :math:`N \in I\!R(N_m, N_r)`
-- Time evolution via system of ordinary differential equations from initial state :math:`x_0`
+- Time evolution of :math:`\vec{x}(t)` via system of ordinary differential equations from initial state :math:`\vec{x}_0` via
 
 .. math:: \frac{d}{dt} \vec{x} = N \cdot \vec{v}
 
@@ -13,6 +13,7 @@ Short review kinetic model of metabolism
 
 .. math:: N \cdot \vec{v} = 0
 
+- Stability can be analysed using Jacobian matrix :math:`J = N \frac{d\vec{v}}{d\vec{x}}`
 
 Sensitivity
 -----------
@@ -40,91 +41,122 @@ An advantage is that logarithmic sensitivities are unit-less. But can be undefin
 
 **Example**
 
-For instance we can calculate the sensitivity of a Michaelis-Menten rate equation :math:`v(x)` on the metabolite concentrations `x` at a concentration `x^0`
+For instance we can calculate the sensitivity of a Michaelis-Menten rate equation :math:`v(x)` on the metabolite concentrations `x` at a concentration :math:`x^0`
 
 .. math:: v(x) = \frac{V_{m}\cdot x}{K_m + x}
 
-.. math:: \frac{d \ln v(x)}{d \ln x} = \frac{x^0}{v(x^0)} \cdot \frac{dv}{dx}\right|_{X^0}
+.. math:: \frac{d \ln v(x)}{d \ln x} = \frac{x^0}{v(x^0)} \cdot \frac{dv}{dx}|_{X^0}
 
 .. math:: \frac{dv}{dx} = \frac{V_m \cdot (K_m+x) - V_m \cdot x}{(K_m + x)^2} = \frac{V_m \cdot K_m}{(K_m + x)^2}
 
-.. math:: \frac{d \ln v(x)}{d \ln x} = \frac{x^0}{\frac{V_m \cdot x^0}{K_m + x0}} \cdot \frac{V_m \cdot K_m}{(K_m + x)^2} = \frac{K_m}{K_m + x^0} = \frac{1}{1 + \frac{x^0}{K_m} \in [0, 1)
+.. math:: \frac{d \ln v(x)}{d \ln x} = \frac{x^0}{\frac{V_m \cdot x^0}{K_m + x0}} \cdot \frac{V_m \cdot K_m}{(K_m + x)^2}= \frac{K_m}{K_m + x^0} = \frac{1}{1 + \frac{x^0}{K_m}} \in [0, 1)
 
 The logarithmic sensitivities have an intuitive interpretation as the **kinetic order** of a reaction.
-For a Michaelis-Menten function, the logarithmic sensititivity with respect to the substrates ranges from :math:`1` (linear regime, substrate concentration small compared to :math:`Km`) to :math:`0` (saturation, substrate concentration large compared to :math:`Km`)
+For a Michaelis-Menten function, the logarithmic sensititivity with respect to the substrates ranges from
 
-**Exercise**
+**linear regime**
 
-What are the logarithmic (normalized/scaled) sensitivities of the following functions with respect to the variable :math:`x`
+:math:`x^0 \ll K_m \Rightarrow \frac{\partial \ln v}{\partial \ln x} \to 1` (substrate concentration small compared to :math:`K_m`)
 
-.. math:: v(x) = k \cdot x
-.. math:: v(x) = k \cdot x^n
-.. math:: v(x) = \frac{V_m \cdot x^n}{K_m^n + x^n}
-.. math:: v(x) = \frac{Vv_m}{1 + \frac{1}{x^n/K_i^n}}
+Compare to :math:`\frac{V_m \cdot x}{K_m + x} \to_{x << K_m} \frac{V_m}{K_m} \cdot x`
+
+**saturation**
+
+:math:`x^0 \gg K_m \Rightarrow \frac{\partial \ln v}{\partial \ln x} \to 0` (saturation, substrate concentration large compared to :math:`K_m`)
+
 
 Metabolic Control Analysis (MCA)
 --------------------------------
+
+- In metabolic networks the steady state variables, that is the fluxes and metabolite concentrations, depend on the value of parameters such as enzyme concentrations, kinetic constants (like Michelis-Menten constants).
+- The effect of perturbations depends the place of the perturbation.
+
+- MCA considers how a perturbation propagates through a metabolic network. Typically: how a change in enzyme concentration (or other parameter) affects the steady state with respect to metabolite concentrations and flux values.
 - framework for studying the relationship between steady-state properties of a network of biochemical reactions and the properties of the individual reactions
-- investigates sensitivity of steady state properties to small parameter changes
 - tool for analysis of control and regulation
 - originally developed for metabolic networks, MCA has found application in *signaling pathways*, *gene expression models*, and *hierarchical models*
 - metabolic networks are complex systems
 
-In metabolic networks the steady state variables, that is the fluxes and metabolite concentrations, depend on the value of parameters such as enzyme concentrations, kinetic constants (like Michelis-Menten constants).
-
-The effect of perturbations depends the place of the perturbation.
-
-MCA considers how a perturbation propagates through a metabolic network. Typically: how a change in enzyme concentration (or other parameter) affects the steady state with respect to metabolite concentrations and flux values.
-
 MCA is conceptionally similar to classic sensitivity or control theory (from engineering).
-
-Similar to other sensitivities the formulation can be in absolute terms or scaled (i.e. relative sensitivities).
 
 The relations between steady state variables and kinetic parameters are usually nonlinear.
 MCA analyses small parameter changes around steady state.
 
-Two Two distinct type of coefficients:
+Two distinct type of coefficients:
 
 - *elasticity coefficients* are local coefficients pertaining to individual reactions. They can be calculated in any given state.
 
 - *control coefficients* and *response coefficients* are global quantities. They refer to a given steady state of the entire system.
 
+Elasticities
+^^^^^^^^^^^^
 
-**Elasticities**
 An elasticity coefficient quantifies the sensitivity of a reaction rate to the change of a concentration or a parameter while all other arguments of the kinetic law are kept fixed.
 
-In MCA, the partial derivative of a reaction rate with respect to its substrate is called :math:`epsilon`-*elasticity*
-
-.. math:: \epsilon^{v}_{x} = \frac{\partial v(x)}{\partial x}
-
-More general, the sensitivity of the rate :math:`v_k` of a reaction to the change of the concentration :math:`x_i` of a metabolite is calculated by
-
-.. math:: \epsilon^{v_k}_{x_i} = \frac{\partial v_k(x_i)}{\partial x_i}
-
-The corresponding **scaled elasticities** are
-
-.. math:: \epsilon^v_x = \frac{x}{v} \frac{}{} = \frac{\delta \ln v}{\delta \ln x} = \frac{\delta \ln v(x)}{\delta \ln x}
-.. math:: \epsilon^{v_k}_{x_i} = \frac{\delta \ln v_k(x_i)}{\delta \ln x_i}
-
-A set of reactions and a set of metabolites results in an elasticity matrix :math:`epsilon`.
-Note that the Jacobian matrix is :math:`J = N \cdot \epsilon`.
-
-The :math:`\pi`-*elasticity* is defined with respect to parameters :math:`p_m` like kinetic constants, concentrations of enzymes, or concentrations of external metabolites
-
-.. math:: \pi^{v_k}_{p_m} = \frac{\delta \ln v_k}{\delta \ln p_m}
-
-.. figure:: ./images/mca.png
+.. figure:: ./images/elastisities.png
     :width: 600px
     :align: center
     :alt: escher-fba
     :figclass: align-center
 
+In MCA, the partial derivative of a reaction rate with respect to its substrate is called :math:`\epsilon`-*elasticity*
 
-**Control coefficients**
-A control coefficient measures the relative steady state change in a system variable, e.g. pathway flux :math:`J` or metabolite concentration :math:`S`
+.. math:: \epsilon^{v}_{x} = \frac{\partial v}{\partial x}
+
+More general, the sensitivity of the rate :math:`v_k` of a reaction to the change of the concentration :math:`x_i` of a metabolite is calculated by
+
+.. math:: \epsilon^{v_k}_{x_i} = \frac{\partial v_k}{\partial x_i}
+
+The corresponding *scaled elasticities* are
+
+.. math:: \epsilon^v_x = \frac{x}{v} \frac{\partial v}{\partial x} = \frac{\partial \ln v}{\partial \ln x}
+.. math:: \epsilon^{v_k}_{x_i} = \frac{x_i}{v_k} \frac{\partial v_k}{\partial x_i} = \frac{\partial \ln v_k(x_i)}{\partial \ln x_i}
+
+A set of reactions and a set of metabolites results in an elasticity matrix :math:`\epsilon`.
+Note that the Jacobian matrix is :math:`J = N \cdot \epsilon`.
+
+**Examples**
+
+What are the logarithmic (normalized/scaled) sensitivities of the following functions with respect to the variable :math:`x`
+
+.. math:: v(x) = \frac{V_m \cdot x}{K_m + x} \Rightarrow \frac{\partial \ln v(x)}{\partial \ln x} = \frac{1}{1 + \frac{x^0}{K_m}} \in [0, 1)
+
+.. math:: v(x) = k \cdot x \Rightarrow \frac{\partial \ln v(x)}{\partial \ln x} = 1
+.. math:: v(x) = k \cdot x^n \Rightarrow \frac{\partial \ln v(x)}{\partial \ln x} = n
+.. math:: v(x) = \frac{V_m \cdot x^n}{K_m^n + x^n} \Rightarrow \frac{\partial \ln v(x)}{\partial \ln x} = n \cdot \left(\frac{1}{1 + \frac{x_0^n}{K_m^n}}\right) \in (0, 1]
+.. math:: v(x) = \frac{Vv_m}{1 + \frac{1}{x^n/K_i^n}}
+
+
+The :math:`\pi`-*elasticity* is defined with respect to parameters :math:`p_m` like kinetic constants, concentrations of enzymes, or concentrations of external metabolites
+
+.. math:: \pi^{v_k}_{p_m} =  \frac{p}{v} \frac{\partial v}{\partial p} = \frac{\partial \ln v_k}{\partial \ln p_m}
+
+Control coefficients
+^^^^^^^^^^^^^^^^^^^^
+A control coefficient measures the relative steady state change in a system variable, e.g. pathway flux :math:`J_k` or metabolite concentration :math:`x_i`.
 The two main control coefficients are the *flux* and *concentration control coefficients*.
 
+.. figure:: ./images/control-coefficients.png
+    :width: 300px
+    :align: center
+    :alt: escher-fba
+    :figclass: align-center
+
+Control coefficients are defined in a stable steady state of the metabolic system, characterized by steady state :math:`x^{ss}` concentrations and fluxes :math:`\vec{J}`.
+
+Any sufficiently small perturbation of an individual reaction rate :math:`v_k \to v_k + \Delta v_k` drives the system to a new steady state in close proximity with :math:`\vec{J} \to \vec{J} + \Delta \vec{J}` and :math:`\vec{x^{ss}} \to \vec{x^{ss}} + \Delta \vec{x^{ss}}`.
+
+A measure of the change of fluxes and concentrations are the control coefficients.
+
+**Flux control coefficients**
+
+:math:`C^X`, the flux control coefficient denotes the changes in flux upon perturbations,
+
+..math:: \frac{dv}{dp} = \frac{\delta v}{\delta p} + \frac{\delta v}{\delta x}\frac{dx}{dp} = \left[ 1 + \frac{\delta v}{\delta x} \cdot C^X] \frac{\delta v}{\delta p}
+
+
 **Concentration control coefficient**
+
 The (unscaled) concentration control coefficients specify how the concentrations change due to a perturbation of a parameter (typically an enzyme concentration) that effects one or more fluxes.
 In terms of derivatives,
 
@@ -142,48 +174,50 @@ using the definition we get
 
 .. math:: C^X = - \left[ N \cdot \frac{\delta v}{\delta x} \right] \cdot N = - J^{-1} \cdot N.
 
-The definition gets slightly more complicated if the Jacobian is not invertible (for example due to conserved moieties). In this case, a link matrix :math:`L` has to be introduced, see further reading.
 
-**Summation theorem**
-For a set of concentrations and a set of reactions (or enzymes), the concentration control coefficients are a matrix. Multiplication of the concentration control coefficient with (any) vector of the right nullspace of :math:`N` results in the summation theorem,
+Response coefficients
+^^^^^^^^^^^^^^^^^^^^^
+.. figure:: ./images/response-coefficients.png
+    :width: 300px
+    :align: center
+    :alt: escher-fba
+    :figclass: align-center
 
-.. math:: C^X \cdot K = 0
+- The steady state is determined by the values of the parameters.
+- The response coefficients express the direct dependency of steady state variables on parameters
 
-**Connectivity theorem**
-Likewise, multiplication of the concentration control coefficient with the elasticity matrix :math:`\epsilon` results in the conectivity theorem,
+**Flux response coefficient**
 
-.. math:: C^X \cdot \epsilon = 1
+Response of steady state flux to parameter perturbations
 
-**Flux control coefficients**
-Similar to :math:`C^X`, the flux control coefficient denotes the changes in flux upon perturbations,
+.. math:: R^j_m = \frac{p_m}{J_j}\cdot \frac{\partial J_j}{\partial p_m}
 
-..math:: \frac{dv}{dp} = \frac{\delta v}{\delta p} + \frac{\delta v}{\delta x}\frac{dx}{dp} = \left[ 1 + \frac{\delta v}{\delta x} \cdot C^X] \frac{\delta v}{\delta p}
+**Concentration response coefficient**
+Response of steady state concentration to parameter perturbation
 
-and
+.. math:: R^i_m = \frac{p_m}{x^{ss}_i}\cdot \frac{\partial x^{ss}_i}{\partial p_m}
 
-.. math:: C^v := 1 + \frac{\delta v}{\delta x} \cdot C^X
+Theorems of MCA
+^^^^^^^^^^^^^^^
 
-The corresponding summation theorem (for unscaled coefficient) is
+**Summation Theorems**
 
-.. math:: C^v \cdot K = K
+The summation theorems make a statement about the total control over a certain steady-state flux or concentration.
 
-**Scaled control coefficients**
+The flux control coefficients fulfill
 
-Similar to the partial derivatives, it is often useful to consider scaled control coefficients. These provide a measure of the relative changes of concentrations and fluxes upon relative changes in parameters (that is, a scaled control coefficient of :math:`\hat{C}^v`, implies that if the corresponding enzyme is changed by 1% the respective flux changes by 1%).
+.. math:: \sum_{k=1}^r C_{v_k}^{J_j} = 1
 
-We define *scaled elasticities*
+That means that all enzymatic reactions can share the control over this flux.
 
-.. math:: \hat{\epsilon} = D_{v^0}^{-1} \cdot \epsilon \cdot D_{x^0}
+The concentration control coefficients fulfill
 
-*scaled concentration control coefficients* :math:`\hat{C}^X`
+.. math:: \sum_{k=1}^r C_{v_k}^{S_i} = 0
 
-.. math:: \hat{C}^X = D_{x^0}^{-1} \cdot C^X \cdot D_{v^0}
+The control coefficients of a metabolic network for one steady-state concentration are balanced. Enzyme can share control, but some exert negative control while others exert positive control
 
-and *scaled flux control coefficients* :math:`\hat{C}^v`
+**Connectivity Theorems**
 
-.. math:: \hat{C}^v = D_{v^0}^{-1} \cdot C^v \cdot D_{v^0} \Longleftrightarrow \hat{C}^v = 1 + \hat{\epsilon}\cdot \hat{C}^X
-
-where :math:`D_{x^0}` and :math:`D_{v^0}` denote diagonal matrices with :math:`x^0` and :math:`v^0` on the diagonal, respectively.
 
 
 References & further reading
