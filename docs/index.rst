@@ -51,6 +51,7 @@ Contents:
    notebooks/04_ode.rst
    06_cba.rst
    notebooks/05_cba.rst
+   07_mca.rst
 
 
 Indices and tables

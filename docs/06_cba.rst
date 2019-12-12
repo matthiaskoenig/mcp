@@ -123,15 +123,6 @@ Many tools exist for performing FBA analysis, e.g.,
     :alt: escher-fba
     :figclass: align-center
 
-Elementary flux modes (EFM)
----------------------------
-Alternative analysis method using steady-state assumption :math:`N \cdot v^0 = 0`
-
-- Enumeration of possible pathways.
-- A flux mode is a set of reactions that can give rise to a steady state flux vector :math:`v^0`. An elementary flux mode is a flux mode where no reaction can be removed (=zero flux) and the resulting reactions can still be a flux mode.
-- The set of EFMs is unique for a given stoichiometry.
-- The number of EFMs is typically (much) higher then the dimension of the nullspace.
-
 References
 ----------
 
