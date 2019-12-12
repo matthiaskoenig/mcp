@@ -150,30 +150,23 @@ A measure of the change of fluxes and concentrations are the control coefficient
 
 **Flux control coefficients**
 
-:math:`C^X`, the flux control coefficient denotes the changes in flux upon perturbations,
+The flux control coefficient for the control of rate :math:`v_k` over flux :math:`J_j` is defined as
 
-..math:: \frac{dv}{dp} = \frac{\delta v}{\delta p} + \frac{\delta v}{\delta x}\frac{dx}{dp} = \left[ 1 + \frac{\delta v}{\delta x} \cdot C^X] \frac{\delta v}{\delta p}
+.. math:: C^j_k = \frac{v_k}{J_j} \cdot \frac{\partial J_j}{\partial v_k}
 
+The flux control coefficient quantifies the control that a certain reaction :math:`v_k` exerts on the steady state flux :math:`J_j`.
+
+The rate change :math:`\Delta v_k` is caused by the change of a parameter :math:`p_k`, that has direct effect solely on :math:`v_k`
+
+.. math:: C^j_k = \frac{v_k}{J_j} \cdot \frac{\frac{\partial J_j}{\partial p_k}}{\frac{\partial v_k}{\partial p_k}}
+
+Such a parameter might be the enzyme concentration, a kinetic constant, or the concentration of a specific inhibitor or activator.
 
 **Concentration control coefficient**
 
-The (unscaled) concentration control coefficients specify how the concentrations change due to a perturbation of a parameter (typically an enzyme concentration) that effects one or more fluxes.
-In terms of derivatives,
+The concentration control coefficients specify how the steady state concentrations change due to a perturbation of a parameter (typically an enzyme concentration) that effects one or more fluxes.
 
-.. math:: C^x = \frac{\delta x}{\delta p} / \frac{\delta v}{\delta p} = \frac{\delta x}{\delta v}
-
-However, in general no explicit function for the concentrations of the form :math:`x = f(p)` are known. Therefore we consider
-
-.. math:: N \cdot v(x, p) = 0 \; \Rightarrow \; N \left[ \frac{\delta v}{\delta x}\frac{dx}{dp} + \frac{\delta v}{\delta p} \right] = 0
-
-and obtain
-
-.. math:: \frac{dx}{dp} = - \left[ N \cdot \frac{\delta v}{\delta x} \right]^{-1} \cdot N \cdot \frac{\delta v}{delta p} = C^X \cdot \frac{\delta v}{\delta p}
-
-using the definition we get
-
-.. math:: C^X = - \left[ N \cdot \frac{\delta v}{\delta x} \right] \cdot N = - J^{-1} \cdot N.
-
+.. math:: C^i_k = \frac{v_k}{x^{ss}_i} \cdot \frac{\partial x^{ss}_i}{\partial v_k}
 
 Response coefficients
 ^^^^^^^^^^^^^^^^^^^^^
@@ -184,7 +177,7 @@ Response coefficients
     :figclass: align-center
 
 - The steady state is determined by the values of the parameters.
-- The response coefficients express the direct dependency of steady state variables on parameters
+- The response coefficients express the direct dependency of steady state variables on parameters.
 
 **Flux response coefficient**
 
@@ -193,6 +186,7 @@ Response of steady state flux to parameter perturbations
 .. math:: R^j_m = \frac{p_m}{J_j}\cdot \frac{\partial J_j}{\partial p_m}
 
 **Concentration response coefficient**
+
 Response of steady state concentration to parameter perturbation
 
 .. math:: R^i_m = \frac{p_m}{x^{ss}_i}\cdot \frac{\partial x^{ss}_i}{\partial p_m}
@@ -214,9 +208,25 @@ The concentration control coefficients fulfill
 
 .. math:: \sum_{k=1}^r C_{v_k}^{S_i} = 0
 
-The control coefficients of a metabolic network for one steady-state concentration are balanced. Enzyme can share control, but some exert negative control while others exert positive control
+The control coefficients of a metabolic network for one steady-state concentration are balanced. Enzyme can share control, but some exert negative control while others exert positive control.
 
 **Connectivity Theorems**
+
+Flux control coefficients and elasticities are related by
+
+.. math:: \sum_{k=1}^r C_{v_k}^{J_j} \epsilon^{v_k}_{x_i} = 0
+
+The sum runs over all rates :math:`v_k` for any flux :math:`J_j`
+
+The connectivity theorem between concentration control coefficients and elasticities is
+
+.. math:: \sum_{k=1}^r C^{x_h}_{v_k} \epsilon^{v_k}_{x_i} = - \delta_{hi}
+
+.. math:: \delta_{hi} = 0, if h \neq i, 1 otherwise
+
+Again, the sum runs over all rates :math:`v_k`, while :math:`x_h` and :math:`x_i` are the concentrations of two fixed metabolites.
+
+
 
 
 
