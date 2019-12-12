@@ -20,9 +20,11 @@ One of the most important concepts is the sensitivity of a function to a paramet
 However, the value depends on the absolute value of the parameter, i.e., *absolute sensitivity*.
 
 **Logarithmic sensitivity**
-Often it is more useful to look at *relative senitivity* or *logarithmic sensitivity*
+Often it is more useful to look at *relative senitivity* or *logarithmic sensitivity* (scaling/normalization)
 
 .. math:: \frac{d \left( \frac{f(p)}{f(p^0)} \right)}{d \left( \frac{p}{p^0} \right)} = \frac{p^0}{f(p^0)} \frac{df(p)}{dp} = \frac{d \ln f(p)}{d \ln p}
+
+An advantage is that scaled sensitivities are unitless, but could be undefined for certain parameter/value combinations.
 
 **Example**
 
@@ -35,7 +37,7 @@ For a Michaelis-Menten function, the logarithmic sensititivity with respect to t
 
 **Exercise**
 
-What are the logarithmic sensitivities of the following functions with respect to the variable :math:`x`
+What are the logarithmic (normalized/scaled) sensitivities of the following functions with respect to the variable :math:`x`
 
 .. math:: v(x) = k \cdot x
 .. math:: v(x) = k \cdot x^n
@@ -73,18 +75,28 @@ Two Two distinct type of coefficients:
 
 
 **Elasticities**
+An elasticity coefficient quantifies the sensitivity of a reaction rate to the change of a concentration or a parameter while all other arguments of the kinetic law are kept fixed.
 
-In MCA, the partial derivatives of a reaction rate with respect to its substrates are called *elasticities* :math:`\epsilon^v_x`
+In MCA, the partial derivative of a reaction rate with respect to its substrate is called :math:`epsilon`-*elasticity*
 
-.. math:: \epsilon^v_x = \frac{\delta v(x)}{\delta x}
+.. math:: \epsilon^{v}_{x} = \frac{\partial v(x)}{\partial x}
 
-the **scaled elasticities** are
+More general, the sensitivity of the rate :math:`v_k` of a reaction to the change of the concentration :math:`x_i` of a metabolite is calculated by
 
-.. math:: \epsilon^v_x = \frac{\delta ln v(x)}{\delta ln x}
+.. math:: \epsilon^{v_k}_{x_i} = \frac{\partial v_k(x_i)}{\partial x_i}
+
+The corresponding **scaled elasticities** are
+
+.. math:: \epsilon^v_x = \frac{x}{v} \frac{}{} = \frac{\delta \ln v}{\delta \ln x} = \frac{\delta \ln v(x)}{\delta \ln x}
+.. math:: \epsilon^{v_k}_{x_i} = \frac{\delta \ln v_k(x_i)}{\delta \ln x_i}
 
 A set of reactions and a set of metabolites results in an elasticity matrix :math:`epsilon`.
+Note that the Jacobian matrix is :math:`J = N \cdot \epsilon`.
 
-Note that the Jacobian matrix is :math:`J = N \cdot \epsilon` at a steady state (assuming no mass conservation).
+The :math:`\pi`-*elasticity* is defined with respect to parameters :math:`p_m` like kinetic constants, concentrations of enzymes, or concentrations of external metabolites
+
+.. math:: \pi^{v_k}_{p_m} = \frac{\delta \ln v_k}{\delta \ln p_m}
+
 
 **Control coefficients**
 A control coefficient measures the relative steady state change in a system variable, e.g. pathway flux :math:`J` or metabolite concentration :math:`S`
