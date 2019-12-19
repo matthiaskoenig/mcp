@@ -16,23 +16,16 @@ in a *cellular response*
 
 
 
-Ph
-
 typical systems and their dynamic:
 - MAPK and 2 Komponent systems
 - Chemotaxis
 - Dynamic of small network motives (Tyson & Novak)
 - Adaptiation, Ultrasensitivity,
 - Input-Output relationships
-
 x = f(S)
 
-**Beipiel: 2 Komponenten-System
 
--> response regulator diffusable
-
-
-**phosphorylation cycle**
+**Phosphorylation cycle**
 One of the most important signaling motives are protein phosphorylation cycles, i.e., a post-translational modification of a protein in which an amino acid residue is phosphorylated by a protein kinase, and dephosphorylated by a protein phosphatase.
 
 Phosphorylation is a very common mechanism for regulating the activity of enzymes and is the most common post-translational modification.
@@ -47,6 +40,22 @@ Phosphorylation changes the structural conformation of the protein, the phosphor
 
 .. math:: v_1 = k_1 \cdot x \cdot S
 .. math:: v_1 = k_1 \cdot x \cdot S
+
+Famous examples are MAPK signaling network.
+
+(show example network in exercises).
+
+Two-component system
+--------------------
+Two-component signaling systems typically consist of a (membrane-bound) histidine kinase protein
+
+Robustness of two-component systems.
+
+Two-component system
+--------------------
+
+Ultra-sensitivity
+-----------------
 
 
 References & further reading
