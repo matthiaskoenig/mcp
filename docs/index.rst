@@ -52,6 +52,7 @@ Contents:
    06_cba.rst
    notebooks/05_cba.rst
    07_mca.rst
+   08_signaling.rst
 
 
 Indices and tables
