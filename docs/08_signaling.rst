@@ -131,11 +131,10 @@ Important examples
 - *E.coli* osmoregulation (EnvZ/OmpR)
 - *B.subtilis* sporulation
 
-The chemistry of 2-component system involves
-
-- 1. **Autophosphorylation**: HK-His + ATP <-> HK-His-P + ADP
-- 2. **Phosphotransfer**: HK-His-P + RR-Asp <-> HK-His + RR-Asp-P
-- 3. **Dephosphorylation**: RR-Asp-P + H20 <-> RR-Asp + Pi
+| The chemistry of 2-component system involves
+| 1. **Autophosphorylation**: HK-His + ATP <-> HK-His-P + ADP
+| 2. **Phosphotransfer**: HK-His-P + RR-Asp <-> HK-His + RR-Asp-P
+| 3. **Dephosphorylation**: RR-Asp-P + H20 <-> RR-Asp + Pi
 
 **Robustness of two-component systems**
 
