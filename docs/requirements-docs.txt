@@ -4,3 +4,6 @@ sphinx-rtd-theme>=0.4.3
 nbsphinx>=0.4.3
 pypandoc>=1.4
 ipykernel>=5.1.0
+
+
+8f0ac6d2db616a3de217290b21738d4c4c638e20
