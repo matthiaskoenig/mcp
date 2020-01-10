@@ -119,8 +119,8 @@ A two-component regulatory system serves as a basic stimulus-response coupling m
 Two-component signaling systems typically consist of
 
 - (membrane-bound) *histidine kinase* (HK) that senses a specific environmental stimulus (typically homodimeric transmembrane proteins containing a histidine phosphotransfer domain and an ATP binding domain)
-- two-component systems serve as a basic stimulus-response coupling mechanism to allow organism to sense and response to changes in many different environmental conditions.
 - corresponding *response regulator* that mediates the cellular response, mostly through differential expression of target genes (may consist only of receiver domain, but mostly receiver and output domain, often involved in DNA binding)
+- two-component systems serve as a basic stimulus-response coupling mechanism to allow organism to sense and response to changes in many different environmental conditions.
 - overall level of phosphorylated response regulator ultimately controls its activity
 - many HKs are bifunctional and possess phosphatase activity against response regulator
 - most common in bacteria
@@ -175,7 +175,7 @@ the steady state solution for the response regulator is
 
 .. math:: R_p^0 = \frac{k_1}{k_3} \cdot S
 
-The resulting expression is independent of the expression of the proteins :math:`R` and :math:`P`. This is often termed *perfect adaption* or *integral* feedback.
+The resulting expression is independent of the expression of the proteins :math:`R` and :math:`H`. This is often termed *perfect adaption* or *integral* feedback.
 
 Ultra-sensitivity
 -----------------
