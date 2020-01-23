@@ -7,3 +7,10 @@ altair
 imageio
 jupyter
 jupyterlab
+
+# SBML simulations
+tellurium
+
+# parameter fitting
+pypesto
+amici
