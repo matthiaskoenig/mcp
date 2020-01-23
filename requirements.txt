@@ -9,7 +9,8 @@ jupyter
 jupyterlab
 
 # SBML simulations
-tellurium
+sbmlsim
+sbmlutils
 
 # parameter fitting
 pypesto

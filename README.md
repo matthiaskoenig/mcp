@@ -27,7 +27,7 @@ git clone https://github.com/matthiaskoenig/mcp.git
 
 # virtualenv
 cd mcp
-mkvirtualenv mcp --python=python3.6
+mkvirtualenv mcp --python=python3.7
 (mcp) pip install -r requirements.txt
 ```
 Notebook kernel is installed via 
