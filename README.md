@@ -42,4 +42,4 @@ and jupyter lab is started via
 Notebooks are available in
 - `docs/notebooks`
 
-&copy; 2019 Matthias König
+&copy; 2019-2020 Matthias König
