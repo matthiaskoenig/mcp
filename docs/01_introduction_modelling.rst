@@ -1,5 +1,8 @@
 Introduction modeling
 =====================
+- `lecture notes <slides/01_introduction_modelling.pdf>`_
+- `lecture slides <slides/01_introduction_modelling_slides.pdf>`_
+
 
 Overview course
 ---------------
