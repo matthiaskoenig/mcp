@@ -1,8 +1,7 @@
-Introduction modeling
-=====================
-- `lecture notes <slides/01_introduction_modelling.pdf>`_
-- `lecture slides <slides/01_introduction_modelling_slides.pdf>`_
-
+01 Introduction modeling
+=========================
+- `lecture notes <./_static/01_introduction_modelling.pdf>`_
+- `lecture slides <./_static/01_introduction_modelling_ppt.pdf>`_
 
 Overview course
 ---------------

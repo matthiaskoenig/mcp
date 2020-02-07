@@ -1,4 +1,3 @@
-Ordinary differential equations (ODE)
-=====================================
-
-TODO: transcribe lecture notes (Coming soon)
+06 Models of metabolism
+========================
+- `lecture notes <./_static/06_metabolic_models.pdf>`_

@@ -1,5 +1,8 @@
-Signaling pathways
-==================
+11 Signaling
+=============
+- `lecture notes <./_static/11_signaling.pdf>`_
+- `lecture slides <./_static/11_signaling_ppt.pdf>`_
+
 Previously metabolism
 
 .. math:: \frac{d}{dt} \vec{x} = N \cdot \vec{v}

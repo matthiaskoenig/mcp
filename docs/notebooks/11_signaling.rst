@@ -1,5 +1,5 @@
-Signaling pathways
-==================
+Signaling code
+==============
 
 In the following we will implement and analyse the simple signaling
 motives from the lecture - phosphorylation cycle - two-component system

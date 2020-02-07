@@ -1,5 +1,5 @@
-Stochastic processes
-====================
+Stochastic processes code
+=========================
 
 Gillespie Algorithm
 -------------------

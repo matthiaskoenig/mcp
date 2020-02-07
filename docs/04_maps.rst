@@ -1,5 +1,5 @@
-Finite difference equations
-==================================
+04 Finite difference equations
+===============================
 (Lineare und nicht-lineare Abbildungen)
 
 - discrete time

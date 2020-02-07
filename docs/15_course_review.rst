@@ -1,4 +1,3 @@
-Ordinary differential equations (ODE)
-=====================================
-
-TODO: transcribe lecture notes (Coming soon)
+15 Course review
+=====================
+- `lecture notes <./_static/15_course_review.pdf>`_

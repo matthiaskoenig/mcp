@@ -1,5 +1,5 @@
-Constraint-based analysis (CBA)
-===============================
+08 Constraint-based analysis (CBA)
+==================================
 
 Metabolic network reconstruction
 ---------------------------------
@@ -124,7 +124,7 @@ Many tools exist for performing FBA analysis, e.g.,
     :figclass: align-center
 
 Elementary flux modes (EFM)
-============================
+---------------------------
 Alternative analysis method using steady-state assumption :math:`N \cdot v^0 = 0`
 
 - Enumeration of possible pathways.

@@ -1,4 +1,3 @@
-Ordinary differential equations (ODE)
-=====================================
-
-TODO: transcribe lecture notes (Coming soon)
+12 Standard formats
+====================
+- `lecture slides <./_static/12_standard_formats_ppt.pdf>`_

@@ -1,4 +1,3 @@
-Ordinary differential equations (ODE)
-=====================================
-
-TODO: transcribe lecture notes (Coming soon)
+07 Stoichiometric matrix
+=========================
+- `lecture notes <./_static/07_stoichiometric_matrix.pdf>`_

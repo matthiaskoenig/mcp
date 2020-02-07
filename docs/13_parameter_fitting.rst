@@ -1,4 +1,3 @@
-Ordinary differential equations (ODE)
-=====================================
-
-TODO: transcribe lecture notes (Coming soon)
+13 Parameter fitting
+=====================
+- `lecture notes <./_static/13_parameter_fitting.pdf>`_

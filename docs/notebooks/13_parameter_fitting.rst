@@ -1,5 +1,5 @@
-Parameter fitting
-=================
+Parameter fitting code
+======================
 
 .. code:: ipython3
 
@@ -357,8 +357,8 @@ for simulation and parameter fitting.
 
 .. parsed-literal::
 
-    [[<matplotlib.lines.Line2D at 0x7fb6581b8890>],
-     [<matplotlib.lines.Line2D at 0x7fb6581bfd10>]]
+    [[<matplotlib.lines.Line2D at 0x7ff3e12e3b10>],
+     [<matplotlib.lines.Line2D at 0x7ff3e12e3090>]]
 
 
 
@@ -473,7 +473,7 @@ We now load the model and run an example simulation
 
 .. parsed-literal::
 
-    <amici.numpy.ReturnDataView object at 0x7fb5e249f310>
+    <amici.numpy.ReturnDataView object at 0x7ff36b42f510>
 
 
 
@@ -594,182 +594,182 @@ In addition to the model we require experimental data for model fitting.
       <tbody>
         <tr>
           <th>0</th>
-          <td>[-0.6403268577246916, -1.3019958609287048]</td>
-          <td>24.659872</td>
-          <td>[-5.132451138931078e-05, 0.00016729426595870516]</td>
+          <td>[1.240593738364695, 0.8524102279096418]</td>
+          <td>18.272588</td>
+          <td>[-5.946573534175279e-09, 6.3074264082892035e-09]</td>
           <td>None</td>
-          <td>74</td>
-          <td>74</td>
+          <td>32</td>
+          <td>32</td>
           <td>0</td>
           <td>0</td>
           <td>0</td>
-          <td>[0.18392076996556117, -0.44697050242717706]</td>
-          <td>24.786721</td>
-          <td>time n_fval n_grad n_hess n_res n_sre...</td>
-          <td>2</td>
-          <td>0.796890</td>
-          <td>Converged (|x_n-x_(n-1)| ~= 0)</td>
+          <td>[0.31872281423493076, 1.774281155735614]</td>
+          <td>25.409341</td>
+          <td>time n_fval n_grad n_hess n_res n_sres...</td>
+          <td>1</td>
+          <td>0.351414</td>
+          <td>Converged (|f_n-f_(n-1)| ~= 0)</td>
         </tr>
         <tr>
           <th>1</th>
-          <td>[-0.6402608326313913, -1.3019774832362925]</td>
-          <td>24.659872</td>
-          <td>[-8.601452459933328e-06, 0.00012213580746087984]</td>
+          <td>[1.2916461745377459, 0.9034626632086132]</td>
+          <td>18.272588</td>
+          <td>[-2.6842875946011517e-10, -4.621958510966866e-11]</td>
           <td>None</td>
-          <td>60</td>
-          <td>60</td>
+          <td>36</td>
+          <td>36</td>
           <td>0</td>
           <td>0</td>
           <td>0</td>
-          <td>[-1.6249826328510655, -1.2580915996156103]</td>
-          <td>24.944717</td>
-          <td>time n_fval n_grad n_hess n_res n_sre...</td>
-          <td>4</td>
-          <td>0.645084</td>
-          <td>Linear search failed</td>
+          <td>[0.45872042834570825, -0.16319850334747477]</td>
+          <td>18.426206</td>
+          <td>time n_fval n_grad n_hess n_res n_sres...</td>
+          <td>1</td>
+          <td>0.395395</td>
+          <td>Converged (|f_n-f_(n-1)| ~= 0)</td>
         </tr>
         <tr>
           <th>2</th>
-          <td>[-0.639578665709432, -1.3015172291093065]</td>
-          <td>24.659872</td>
-          <td>[7.55277832793519e-05, 0.00027485983626077826]</td>
+          <td>[1.987819240686852, 1.5996357293541672]</td>
+          <td>18.272588</td>
+          <td>[-1.1872761526346859e-11, 2.7857625721764903e-11]</td>
           <td>None</td>
-          <td>55</td>
-          <td>55</td>
+          <td>10</td>
+          <td>10</td>
           <td>0</td>
           <td>0</td>
           <td>0</td>
-          <td>[-0.9412962171656822, -0.37595838059480435]</td>
-          <td>29.585196</td>
-          <td>time n_fval n_grad n_hess n_res n_sre...</td>
-          <td>2</td>
-          <td>0.593501</td>
-          <td>Converged (|x_n-x_(n-1)| ~= 0)</td>
+          <td>[1.889808236461624, 1.6976467335950565]</td>
+          <td>18.431448</td>
+          <td>time n_fval n_grad n_hess n_res n_sres...</td>
+          <td>1</td>
+          <td>0.110502</td>
+          <td>Converged (|f_n-f_(n-1)| ~= 0)</td>
         </tr>
         <tr>
           <th>3</th>
-          <td>[-0.6409958744798205, -1.3026079023514934]</td>
-          <td>24.659872</td>
-          <td>[7.880177730383037e-05, -0.0003511199357357843]</td>
+          <td>[1.4887174760999564, 1.1005339647467896]</td>
+          <td>18.272588</td>
+          <td>[6.968283430495492e-11, -1.4448026760045995e-10]</td>
           <td>None</td>
-          <td>104</td>
-          <td>104</td>
+          <td>12</td>
+          <td>12</td>
           <td>0</td>
           <td>0</td>
           <td>0</td>
-          <td>[-0.39157358342613513, -0.22164978604313434]</td>
-          <td>27.769636</td>
-          <td>time n_fval n_grad n_hess n_res n_sre...</td>
-          <td>4</td>
-          <td>1.121983</td>
-          <td>Linear search failed</td>
+          <td>[1.5429522809109333, 1.0462991598998004]</td>
+          <td>18.309582</td>
+          <td>time n_fval n_grad n_hess n_res n_sres...</td>
+          <td>1</td>
+          <td>0.132435</td>
+          <td>Converged (|f_n-f_(n-1)| ~= 0)</td>
         </tr>
         <tr>
           <th>4</th>
-          <td>[-0.6410826359877619, -1.3027166964388823]</td>
-          <td>24.659872</td>
-          <td>[0.0001345196148928884, -0.0004856609359098888]</td>
+          <td>[1.1800687225918949, 0.7918852112340071]</td>
+          <td>18.272588</td>
+          <td>[-3.553474703221968e-09, -1.806187423019605e-09]</td>
           <td>None</td>
-          <td>45</td>
-          <td>45</td>
+          <td>52</td>
+          <td>52</td>
           <td>0</td>
           <td>0</td>
           <td>0</td>
-          <td>[0.35559158467096363, -1.6591743414804783]</td>
-          <td>24.901216</td>
-          <td>time n_fval n_grad n_hess n_res n_sres...</td>
-          <td>2</td>
-          <td>0.483021</td>
-          <td>Converged (|x_n-x_(n-1)| ~= 0)</td>
+          <td>[-1.3633216196865523, 0.3148458412777626]</td>
+          <td>25.497545</td>
+          <td>time n_fval n_grad n_hess n_res n_sre...</td>
+          <td>1</td>
+          <td>0.568169</td>
+          <td>Converged (|f_n-f_(n-1)| ~= 0)</td>
         </tr>
         <tr>
           <th>5</th>
-          <td>[-0.6350290747367098, -1.299980665426112]</td>
-          <td>24.659877</td>
-          <td>[0.002682353024289993, -0.002227281699513224]</td>
+          <td>[1.1329092021013247, 0.7447255923199679]</td>
+          <td>18.272588</td>
+          <td>[1.8634388278067394e-07, -2.2735375979024686e-07]</td>
           <td>None</td>
-          <td>65</td>
-          <td>65</td>
+          <td>10</td>
+          <td>10</td>
           <td>0</td>
           <td>0</td>
           <td>0</td>
-          <td>[-1.0667304597353886, -0.39266240490325943]</td>
-          <td>29.974740</td>
-          <td>time n_fval n_grad n_hess n_res n_sre...</td>
-          <td>2</td>
-          <td>0.698475</td>
-          <td>Converged (|x_n-x_(n-1)| ~= 0)</td>
+          <td>[1.1066280457099054, 0.7710067141715182]</td>
+          <td>18.282790</td>
+          <td>time n_fval n_grad n_hess n_res n_sres...</td>
+          <td>1</td>
+          <td>0.110795</td>
+          <td>Converged (|f_n-f_(n-1)| ~= 0)</td>
         </tr>
         <tr>
           <th>6</th>
-          <td>[1.8448797818145628, 0.9742785090140228]</td>
-          <td>24.714615</td>
-          <td>[-2.1021051513159263e-10, 7.828406223612672e-11]</td>
+          <td>[1.1108673059515404, 0.7226801620718648]</td>
+          <td>18.272588</td>
+          <td>[2.5484667328533038e-05, -2.557808617546579e-05]</td>
           <td>None</td>
-          <td>17</td>
-          <td>17</td>
+          <td>47</td>
+          <td>47</td>
           <td>0</td>
           <td>0</td>
           <td>0</td>
-          <td>[1.0773923427977783, 1.7417659481591867]</td>
-          <td>32.442263</td>
+          <td>[-0.6011283950028239, 0.9316754580399342]</td>
+          <td>25.522714</td>
           <td>time n_fval n_grad n_hess n_res n_sres...</td>
           <td>1</td>
-          <td>0.192253</td>
+          <td>0.530817</td>
           <td>Converged (|f_n-f_(n-1)| ~= 0)</td>
         </tr>
         <tr>
           <th>7</th>
-          <td>[1.2501654503710995, 0.3795641785079075]</td>
-          <td>24.714615</td>
-          <td>[-5.05530206049202e-09, 1.3234594702527407e-09]</td>
+          <td>[0.9892982784716362, 0.6011145066526753]</td>
+          <td>18.272588</td>
+          <td>[-2.021036107023119e-06, -3.645212221633074e-06]</td>
           <td>None</td>
-          <td>12</td>
-          <td>12</td>
+          <td>48</td>
+          <td>48</td>
           <td>0</td>
           <td>0</td>
           <td>0</td>
-          <td>[1.1256196057375325, 0.5041100129600875]</td>
-          <td>24.800672</td>
+          <td>[1.143728024175115, -1.2191376083395697]</td>
+          <td>19.550679</td>
           <td>time n_fval n_grad n_hess n_res n_sres...</td>
           <td>1</td>
-          <td>0.133259</td>
+          <td>0.527696</td>
           <td>Converged (|f_n-f_(n-1)| ~= 0)</td>
         </tr>
         <tr>
           <th>8</th>
-          <td>[1.1473218686132691, 0.27672055922990885]</td>
-          <td>24.714615</td>
-          <td>[-8.869331786228887e-08, -8.828175257465214e-08]</td>
+          <td>[0.9833201436429737, 0.5951289099005517]</td>
+          <td>18.272588</td>
+          <td>[4.972946391938184e-05, -5.647505510047428e-05]</td>
           <td>None</td>
-          <td>26</td>
-          <td>26</td>
+          <td>57</td>
+          <td>57</td>
           <td>0</td>
           <td>0</td>
           <td>0</td>
-          <td>[1.8374211798696036, -1.6777784865729273]</td>
-          <td>24.933699</td>
-          <td>time n_fval n_grad n_hess n_res n_sres...</td>
+          <td>[-1.4801860908669124, -0.9052564726889085]</td>
+          <td>19.605299</td>
+          <td>time n_fval n_grad n_hess n_res n_sre...</td>
           <td>1</td>
-          <td>0.284678</td>
+          <td>0.624599</td>
           <td>Converged (|f_n-f_(n-1)| ~= 0)</td>
         </tr>
         <tr>
           <th>9</th>
-          <td>[1.0371570920790762, 0.16669457538572632]</td>
-          <td>24.714615</td>
-          <td>[-0.0002559827877657531, 0.00025112579865040974]</td>
+          <td>[0.9373972619991663, 0.5492022513634875]</td>
+          <td>18.272588</td>
+          <td>[6.487871389783481e-05, -8.853615399245409e-05]</td>
           <td>None</td>
-          <td>54</td>
-          <td>54</td>
+          <td>16</td>
+          <td>16</td>
           <td>0</td>
           <td>0</td>
           <td>0</td>
-          <td>[-0.5219519178976069, 1.4017266341709718]</td>
-          <td>36.527639</td>
-          <td>time n_fval n_grad n_hess n_res n_sre...</td>
+          <td>[1.3950467302866691, 0.091431438514892]</td>
+          <td>19.195009</td>
+          <td>time n_fval n_grad n_hess n_res n_sres...</td>
           <td>1</td>
-          <td>0.593114</td>
+          <td>0.176672</td>
           <td>Converged (|f_n-f_(n-1)| ~= 0)</td>
         </tr>
       </tbody>
@@ -795,7 +795,7 @@ In addition to the model we require experimental data for model fitting.
 
 .. parsed-literal::
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x7fb639af8d90>
+    <matplotlib.axes._subplots.AxesSubplot at 0x7ff3d4a91f50>
 
 
 
@@ -821,7 +821,7 @@ In addition to the model we require experimental data for model fitting.
 
 .. parsed-literal::
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x7fb639a43490>
+    <matplotlib.axes._subplots.AxesSubplot at 0x7ff3d4968a10>
 
 
 

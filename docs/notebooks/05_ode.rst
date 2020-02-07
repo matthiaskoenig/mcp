@@ -1,5 +1,5 @@
-Differential equations and numerical integration
-================================================
+Ordinary differential equations (ODE) code
+==========================================
 
 Euler method
 ------------

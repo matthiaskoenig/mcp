@@ -1,5 +1,8 @@
-Cellular automata
-=================
+03 Cellular automata
+=====================
+- `lecture slides <./_static/03_cellular_automata_ppt.pdf>`_
+
+What are cellular automata?
 
 - boolean network
 - spatial pattern of nodes
